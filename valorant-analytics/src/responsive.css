@@ -1,0 +1,267 @@
+/* 반응형 CSS - 전역 스타일 */
+
+/* 기본 반응형 설정 */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+/* 네비게이션 스크롤바 숨기기 */
+.nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* 컨테이너 스크롤바 스타일링 */
+.responsive-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.3) transparent;
+}
+
+/* 네비게이션 호버 효과 (데스크탑만) */
+@media (hover: hover) {
+  .nav-link:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.2) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+  
+  .back-button:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.2) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+}
+
+/* 카드 호버 효과 (데스크탑만) */
+@media (hover: hover) {
+  .responsive-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.15) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+}
+
+/* 모바일 최적화 */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  /* 네비게이션 모바일 최적화 */
+  .nav-container {
+    padding: 8px !important;
+    gap: 8px !important;
+  }
+  
+  .nav-link {
+    padding: 10px 12px !important;
+    font-size: 12px !important;
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* 모바일에서 네비게이션 텍스트 숨기기 (아이콘만 표시) */
+  .nav-text {
+    display: none !important;
+  }
+  
+  /* 모바일에서 뒤로가기 버튼 텍스트 숨기기 */
+  .back-text {
+    display: none !important;
+  }
+  
+  /* 카드 모바일 최적화 */
+  .responsive-card {
+    padding: 15px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  /* 그리드 모바일 최적화 */
+  .responsive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+  
+  /* 텍스트 모바일 최적화 */
+  h1 {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+  }
+  
+  h3 {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* 버튼 모바일 최적화 */
+  button {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    font-size: 14px !important;
+  }
+  
+  /* 모달 모바일 최적화 */
+  .modal-content {
+    width: 95vw !important;
+    height: 90vh !important;
+    margin: 5vh auto !important;
+  }
+}
+
+/* 태블릿 최적화 */
+@media (min-width: 481px) and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .nav-container {
+    padding: 12px !important;
+    gap: 12px !important;
+  }
+  
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 18px !important;
+  }
+}
+
+/* 데스크탑 최적화 */
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+  
+  .responsive-grid {
+    gap: 25px !important;
+  }
+  
+  /* 와이드 스크린 최적화 */
+  @media (min-width: 1400px) {
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* 터치 디바이스 최적화 */
+@media (pointer: coarse) {
+  /* 터치 타겟 최소 크기 보장 */
+  button, 
+  .clickable,
+  .nav-link,
+  .card {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* 터치 피드백 */
+  button:active,
+  .clickable:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+}
+
+/* 고해상도 디스플레이 최적화 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* 텍스트 선명도 개선 */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* 다크모드 지원 */
+@media (prefers-color-scheme: dark) {
+  /* 이미 다크 테마이므로 추가 최적화 */
+  ::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+  }
+}
+
+/* 애니메이션 감소 설정 지원 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 인쇄 최적화 */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  .nav-container,
+  button {
+    display: none !important;
+  }
+}
+
+/* 가로/세로 모드 최적화 */
+@media (orientation: landscape) and (max-height: 500px) {
+  /* 가로 모드에서 헤더 축소 */
+  .page-header {
+    padding: 10px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .page-header h1 {
+    font-size: 20px !important;
+  }
+}
+
+/* 접근성 개선 */
+@media (prefers-contrast: high) {
+  * {
+    border-color: rgba(255,255,255,0.8) !important;
+  }
+  
+  .nav-link,
+  .responsive-card {
+    border-width: 2px !important;
+  }
+}

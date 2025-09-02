@@ -22,5 +22,12 @@ contextBridge.exposeInMainWorld('electronAPI', {
   
   // 앱 정보
   getAppVersion: () => process.env.npm_package_version || '1.0.0',
-  getPlatform: () => process.platform
+  getPlatform: () => process.platform,
+  
+  // 환경 변수 (Electron에서 React로 전달)
+  getEnvVars: () => ({
+    PRIMARY_API_KEY: process.env.PRIMARY_API_KEY || null,
+    RIOT_API_KEY: process.env.RIOT_API_KEY || null,
+    NODE_ENV: process.env.NODE_ENV || 'development'
+  })
 });

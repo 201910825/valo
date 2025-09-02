@@ -1,13 +1,21 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const express = require('express');
+// const express = require('express'); // 사용하지 않음 (사용자 요청에 따라 주석 처리)
 const tracker = require('./native/build/Release/tracker.node');
+
+// 환경 변수 로드 (dotenv 사용)
+require('dotenv').config();
 
 // 로컬 HTTP 서버 설정 (Riot API 검증용)
 let localServer = null;
 const LOCAL_PORT = 3001;
 
 function startLocalServer() {
+  // Express 서버 비활성화됨
+  console.log('⚠️ Express 서버가 비활성화되었습니다.');
+  return null;
+  
+  /* 원래 Express 코드 (주석 처리됨)
   const server = express();
   
   // 정적 파일 서빙
@@ -33,6 +41,7 @@ function startLocalServer() {
   });
   
   return `http://localhost:${LOCAL_PORT}`;
+  */ // Express 코드 끝
 }
 
 function createWindow() {

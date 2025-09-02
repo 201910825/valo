@@ -488,6 +488,15 @@
     "nodedir": "/Users/elwlals/Library/Caches/node-gyp/24.2.0",
     "python": "/opt/homebrew/opt/python@3.13/bin/python3.13",
     "standalone_static_library": 1,
-    "yes": "true"
+    "global_prefix": "/opt/homebrew",
+    "local_prefix": "/Users/elwlals/Desktop/gg/valo",
+    "globalconfig": "/opt/homebrew/etc/npmrc",
+    "userconfig": "/Users/elwlals/.npmrc",
+    "init_module": "/Users/elwlals/.npm-init.js",
+    "npm_version": "11.3.0",
+    "node_gyp": "/opt/homebrew/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js",
+    "cache": "/Users/elwlals/.npm",
+    "user_agent": "npm/11.3.0 node/v24.2.0 darwin arm64 workspaces/false",
+    "prefix": "/opt/homebrew"
   }
 }
