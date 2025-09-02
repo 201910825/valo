@@ -56,20 +56,8 @@ export const fetchMatches = async (summonerName) => {
     }
   } else {
     console.warn("Electron 환경이 아닙니다, 웹 더미 데이터 사용");
-    // 웹 환경에서의 더미 데이터
-    const dummyMatches = generateDummyData.matches(5).map(match => ({
-      matchId: match.matchInfo.matchId,
-      playerName: gameName,
-      agent: match.players[0].characterId,
-      map: match.matchInfo.mapId,
-      kills: match.players[0].stats.kills,
-      deaths: match.players[0].stats.deaths,
-      assists: match.players[0].stats.assists,
-      score: match.players[0].stats.score,
-      rank: `Tier ${match.players[0].competitiveTier}`,
-      gameMode: "Competitive",
-      result: Math.random() > 0.5 ? "승리" : "패배"
-    }));
+    // 웹 환경에서의 더미 데이터 (이미 올바른 구조로 생성됨)
+    const dummyMatches = generateDummyData.matches(5, gameName);
     
     return {
       success: true,
