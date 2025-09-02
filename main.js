@@ -1,6 +1,39 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const express = require('express');
 const tracker = require('./native/build/Release/tracker.node');
+
+// 로컬 HTTP 서버 설정 (Riot API 검증용)
+let localServer = null;
+const LOCAL_PORT = 3001;
+
+function startLocalServer() {
+  const server = express();
+  
+  // 정적 파일 서빙
+  server.use(express.static(path.join(__dirname, 'valorant-analytics/build')));
+  
+  // Riot API 검증용 엔드포인트
+  server.get('/riot-verification', (req, res) => {
+    res.json({ 
+      status: 'verified',
+      app: 'Valorant Analytics',
+      version: '1.0.0',
+      timestamp: new Date().toISOString()
+    });
+  });
+  
+  // SPA 라우팅 지원
+  server.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'valorant-analytics/build/index.html'));
+  });
+  
+  localServer = server.listen(LOCAL_PORT, 'localhost', () => {
+    console.log(`🌐 로컬 서버 실행: http://localhost:${LOCAL_PORT}`);
+  });
+  
+  return `http://localhost:${LOCAL_PORT}`;
+}
 
 function createWindow() {
   const win = new BrowserWindow({
