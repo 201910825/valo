@@ -1,0 +1,41 @@
+{
+    "summoner": "Player123",
+    "rank": "Diamond 2",
+    "matches": [
+      {
+        "matchId": "MATCH_001",
+        "map": "Bind",
+        "agent": "Jett",
+        "kills": 18,
+        "deaths": 12,
+        "assists": 5,
+        "hs_percent": 42,
+        "adr": 190,
+        "rounds": [
+          {"round":1, "kills":2, "deaths":1, "assists":0, "spike_planted":true, "result":"Win"},
+          {"round":2, "kills":1, "deaths":2, "assists":1, "spike_planted":false, "result":"Loss"},
+          {"round":3, "kills":3, "deaths":1, "assists":1, "spike_planted":true, "result":"Win"}
+        ],
+        "team": ["Jett", "Sage", "Omen", "Killjoy", "Phoenix"],
+        "opponent": ["Raze", "Sova", "Viper", "Breach", "Reyna"]
+      },
+      {
+        "matchId": "MATCH_002",
+        "map": "Haven",
+        "agent": "Sage",
+        "kills": 10,
+        "deaths": 8,
+        "assists": 12,
+        "hs_percent": 35,
+        "adr": 140,
+        "rounds": [
+          {"round":1, "kills":1, "deaths":1, "assists":3, "spike_planted":false, "result":"Win"},
+          {"round":2, "kills":2, "deaths":2, "assists":2, "spike_planted":true, "result":"Loss"},
+          {"round":3, "kills":0, "deaths":3, "assists":1, "spike_planted":false, "result":"Loss"}
+        ],
+        "team": ["Jett","Sage","Omen","Killjoy","Phoenix"],
+        "opponent": ["Raze","Sova","Viper","Breach","Reyna"]
+      }
+    ]
+  }
+  

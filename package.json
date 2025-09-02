@@ -1,0 +1,24 @@
+{
+  "name": "valorant-analytics-electron",
+  "version": "1.0.0",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev": "NODE_ENV=development concurrently \"npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron": "electron .",
+    "react-start": "npm --prefix ./valorant-analytics start",
+    "react-build": "npm --prefix ./valorant-analytics run build",
+    "rebuild-native": "cd native && node-gyp configure && node-gyp build",
+    "build": "npm run react-build && npm run rebuild-native",
+    "test": "npm --prefix ./valorant-analytics test"
+  },
+  "devDependencies": {
+    "electron": "^37.4.0"
+  },
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "node-addon-api": "^8.5.0",
+    "wait-on": "^8.0.4"
+  }
+}

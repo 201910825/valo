@@ -1,0 +1,1 @@
+cmd_Release/tracker.node := c++ -bundle -undefined dynamic_lookup -Wl,-search_paths_first -mmacosx-version-min=13.5 -arch arm64 -L./Release -stdlib=libc++  -o Release/tracker.node Release/obj.target/tracker/tracker.o Release/nothing.a 
